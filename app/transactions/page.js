@@ -94,30 +94,39 @@ export default function TransactionsPage() {
             }, 1000);
         }
     };
-
     const fetchCategories = async (token) => {
 
         try {
+
+            console.log("Fetching Categories...");
 
             const response = await axios.get(
                 `${API_URL}/api/categories`,
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                        Authorization: `Bearer ${token}`,
+                    },
                 }
             );
 
-            setCategories(response.data.categories || []);
+            console.log("Categories Response:", response.data);
+
+
+            if (response.data.success) {
+                setCategories(response.data.categories);
+            } else {
+                setCategories([]);
+            }
 
         } catch (error) {
 
-            console.log(error);
+            console.log("CATEGORY ERROR:", error);
 
             toast.error(
                 error.response?.data?.message ||
                 "Failed to fetch categories"
             );
+
         }
     };
 
@@ -422,7 +431,6 @@ export default function TransactionsPage() {
                                 />
 
                                 <input
-                                    type="number"
                                     name="amount"
                                     placeholder="0.00"
                                     value={formData.amount}
