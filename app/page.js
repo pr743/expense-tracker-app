@@ -1,65 +1,528 @@
-import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  ShieldCheck,
+  Wallet,
+  BarChart3,
+  TrendingUp,
+  CreditCard,
+  Sparkles,
+  CheckCircle2
+} from "lucide-react";
 
 export default function Home() {
+
+  const features = [
+
+    {
+      title: "Smart Analytics",
+      desc: "Track income, expenses, savings, and monthly financial growth.",
+      icon: <BarChart3 size={28} />
+    },
+
+    {
+      title: "Secure Authentication",
+      desc: "JWT authentication system with protected routes & user security.",
+      icon: <ShieldCheck size={28} />
+    },
+
+    {
+      title: "Real-time Dashboard",
+      desc: "Modern dashboard with charts, reports, and live transaction updates.",
+      icon: <TrendingUp size={28} />
+    },
+
+    {
+      title: "Expense Management",
+      desc: "Manage categories, transactions, income & expenses professionally.",
+      icon: <CreditCard size={28} />
+    }
+
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+    <main className="bg-[#030712] text-white overflow-hidden">
+
+
+
+      <section className="relative min-h-screen flex items-center px-5 sm:px-8 lg:px-16 py-24">
+
+
+
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-black to-[#111827]" />
+
+        <div className="absolute top-20 left-10 w-72 h-72 bg-violet-600/20 blur-[140px] rounded-full" />
+
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-cyan-500/20 blur-[140px] rounded-full" />
+
+        <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
+
+
+          <div>
+
+            <div className="inline-flex items-center gap-3 border border-white/10 bg-white/5 backdrop-blur-xl px-5 py-3 rounded-full">
+
+              <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse" />
+
+              <span className="text-sm text-gray-300 font-medium">
+                AI Powered Finance Management
+              </span>
+
+            </div>
+
+            <h1 className="mt-8 text-5xl sm:text-6xl lg:text-7xl font-black leading-tight">
+
+              Modern
+
+              <span className="block bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+
+                Expense Tracker
+
+              </span>
+
+              Dashboard
+
+            </h1>
+
+            <p className="mt-8 text-gray-400 text-lg leading-relaxed max-w-2xl">
+
+              A professional full stack finance management platform built with
+              Next.js, Node.js, Express, MySQL & Tailwind CSS. Track expenses,
+              analyze reports, monitor transactions, and manage financial growth
+              with real-time analytics.
+
+            </p>
+
+
+            <div className="flex flex-col sm:flex-row gap-5 mt-10">
+
+              <Link
+                href="/register"
+                className="
+                  group
+                  inline-flex
+                  items-center
+                  justify-center
+                  gap-3
+                  bg-gradient-to-r
+                  from-violet-600
+                  to-fuchsia-600
+                  hover:scale-105
+                  transition-all
+                  duration-300
+                  px-8
+                  py-4
+                  rounded-2xl
+                  font-bold
+                  shadow-2xl
+                  shadow-violet-500/30
+                "
+              >
+
+                Start Free
+
+                <ArrowRight
+                  size={20}
+                  className="group-hover:translate-x-1 transition-all"
+                />
+
+              </Link>
+
+              <Link
+                href="/login"
+                className="
+                  border
+                  border-white/10
+                  bg-white/5
+                  hover:bg-white/10
+                  backdrop-blur-xl
+                  px-8
+                  py-4
+                  rounded-2xl
+                  font-bold
+                  transition-all
+                  duration-300
+                "
+              >
+                Login Account
+              </Link>
+
+            </div>
+
+
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 mt-16">
+
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-xl">
+
+                <h2 className="text-3xl font-black">
+                  10K+
+                </h2>
+
+                <p className="text-gray-400 text-sm mt-2">
+                  Transactions
+                </p>
+
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-xl">
+
+                <h2 className="text-3xl font-black">
+                  99%
+                </h2>
+
+                <p className="text-gray-400 text-sm mt-2">
+                  Secure
+                </p>
+
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-xl">
+
+                <h2 className="text-3xl font-black">
+                  Live
+                </h2>
+
+                <p className="text-gray-400 text-sm mt-2">
+                  Analytics
+                </p>
+
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-xl">
+
+                <h2 className="text-3xl font-black">
+                  Smart
+                </h2>
+
+                <p className="text-gray-400 text-sm mt-2">
+                  Reports
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div className="relative">
+
+            <div className="
+              relative
+              rounded-[40px]
+              border
+              border-white/10
+              bg-white/[0.04]
+              backdrop-blur-2xl
+              p-6
+              lg:p-8
+              shadow-2xl
+            ">
+
+
+
+              <div className="flex items-center justify-between">
+
+                <div className="flex items-center gap-4">
+
+                  <div className="
+                    w-14
+                    h-14
+                    rounded-3xl
+                    bg-gradient-to-br
+                    from-violet-600
+                    to-fuchsia-600
+                    flex
+                    items-center
+                    justify-center
+                  ">
+
+                    <Wallet size={28} />
+
+                  </div>
+
+                  <div>
+
+                    <h2 className="text-2xl font-black">
+                      Finance Dashboard
+                    </h2>
+
+                    <p className="text-gray-400 text-sm mt-1">
+                      Real-time analytics
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <div className="
+                  px-4
+                  py-2
+                  rounded-2xl
+                  bg-green-500/20
+                  text-green-400
+                  text-sm
+                  font-bold
+                  border
+                  border-green-500/20
+                ">
+                  Live
+                </div>
+
+              </div>
+
+
+
+              <div className="
+                mt-8
+                rounded-[32px]
+                bg-gradient-to-r
+                from-violet-600
+                via-fuchsia-600
+                to-cyan-500
+                p-8
+                shadow-2xl
+              ">
+
+                <p className="text-white/70 text-sm">
+                  Total Balance
+                </p>
+
+                <h1 className="text-5xl lg:text-6xl font-black mt-3">
+                  ₹38,450
+                </h1>
+
+                <div className="flex items-center gap-3 mt-5">
+
+                  <CheckCircle2 size={20} />
+
+                  <span className="font-semibold">
+                    +12% this month
+                  </span>
+
+                </div>
+
+              </div>
+
+
+
+              <div className="grid grid-cols-2 gap-5 mt-6">
+
+                <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-3xl p-6">
+
+                  <p className="text-emerald-400 text-sm">
+                    Income
+                  </p>
+
+                  <h2 className="text-3xl font-black mt-3">
+                    ₹50,000
+                  </h2>
+
+                </div>
+
+                <div className="bg-red-500/10 border border-red-500/20 rounded-3xl p-6">
+
+                  <p className="text-red-400 text-sm">
+                    Expense
+                  </p>
+
+                  <h2 className="text-3xl font-black mt-3">
+                    ₹11,550
+                  </h2>
+
+                </div>
+
+              </div>
+
+
+
+              <div className="mt-8 space-y-4">
+
+                {
+                  [
+                    {
+                      title: "Salary",
+                      type: "Income",
+                      amount: "+₹50,000",
+                      color: "text-emerald-400"
+                    },
+
+                    {
+                      title: "Shopping",
+                      type: "Expense",
+                      amount: "-₹2,500",
+                      color: "text-red-400"
+                    },
+
+                    {
+                      title: "Netflix",
+                      type: "Subscription",
+                      amount: "-₹799",
+                      color: "text-red-400"
+                    },
+
+                    {
+                      title: "Freelancing",
+                      type: "Project Payment",
+                      amount: "+₹12,000",
+                      color: "text-emerald-400"
+                    }
+
+                  ].map((item, index) => (
+
+                    <div
+                      key={index}
+                      className="
+                        flex
+                        items-center
+                        justify-between
+                        bg-white/[0.03]
+                        hover:bg-white/[0.06]
+                        border
+                        border-white/5
+                        rounded-3xl
+                        p-5
+                        transition-all
+                        duration-300
+                      "
+                    >
+
+                      <div className="flex items-center gap-4">
+
+                        <div className="
+                          w-12
+                          h-12
+                          rounded-2xl
+                          bg-white/10
+                          flex
+                          items-center
+                          justify-center
+                        ">
+
+                          <Sparkles size={20} />
+
+                        </div>
+
+                        <div>
+
+                          <h3 className="font-bold">
+                            {item.title}
+                          </h3>
+
+                          <p className="text-gray-400 text-sm mt-1">
+                            {item.type}
+                          </p>
+
+                        </div>
+
+                      </div>
+
+                      <h2 className={`font-black text-lg ${item.color}`}>
+                        {item.amount}
+                      </h2>
+
+                    </div>
+
+                  ))
+                }
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+      </section>
+
+
+
+      <section className="relative px-5 sm:px-8 lg:px-16 py-24">
+
+        <div className="max-w-7xl mx-auto">
+
+          <div className="text-center max-w-3xl mx-auto">
+
+            <h2 className="text-4xl lg:text-5xl font-black">
+
+              Everything You Need
+              <span className="block text-violet-400 mt-3">
+                In One Platform
+              </span>
+
+            </h2>
+
+            <p className="text-gray-400 mt-6 text-lg">
+
+              Professional finance management system with modern UI,
+              analytics, transactions, reports, and secure authentication.
+
+            </p>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-7 mt-20">
+
+            {
+              features.map((feature, index) => (
+
+                <div
+                  key={index}
+                  className="
+                    group
+                    bg-white/[0.03]
+                    hover:bg-white/[0.05]
+                    border
+                    border-white/10
+                    rounded-[32px]
+                    p-8
+                    transition-all
+                    duration-300
+                    hover:-translate-y-2
+                  "
+                >
+
+                  <div className="
+                    w-16
+                    h-16
+                    rounded-3xl
+                    bg-gradient-to-br
+                    from-violet-600
+                    to-fuchsia-600
+                    flex
+                    items-center
+                    justify-center
+                    shadow-xl
+                    shadow-violet-500/20
+                  ">
+
+                    {feature.icon}
+
+                  </div>
+
+                  <h3 className="text-2xl font-black mt-8">
+                    {feature.title}
+                  </h3>
+
+                  <p className="text-gray-400 leading-relaxed mt-4">
+                    {feature.desc}
+                  </p>
+
+                </div>
+
+              ))
+            }
+
+          </div>
+
         </div>
-      </main>
-    </div>
+
+      </section>
+
+    </main>
   );
 }
