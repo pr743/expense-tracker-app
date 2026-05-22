@@ -19,7 +19,7 @@ import toast from "react-hot-toast";
 
 const API_URL =
     process.env.NEXT_PUBLIC_API_URL ||
-    "https://your-backend-api.onrender.com";
+    "https://full-stack-project-2-using-sql-backend.onrender.com";
 
 export default function TransactionsPage() {
 
@@ -62,71 +62,43 @@ export default function TransactionsPage() {
     }, []);
 
     const fetchTransactions = async (token) => {
-
         try {
-
-            const response = await axios.get(
-                `${API_URL}/api/transactions`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                }
-            );
+            const response = await api.get("/api/transactions", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
 
             setTransactions(response.data.transactions || []);
-
         } catch (error) {
-
             console.log(error);
 
             toast.error(
                 error.response?.data?.message ||
                 "Failed to fetch transactions"
             );
-
         } finally {
-
-            setTimeout(() => {
-
-                setLoading(false);
-
-            }, 1000);
+            setTimeout(() => setLoading(false), 800);
         }
     };
     const fetchCategories = async (token) => {
-
         try {
-
-            console.log("Fetching Categories...");
-
-            const response = await axios.get(
-                `${API_URL}/api/categories`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
+            const response = await api.get("/api/categories", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
 
             console.log("Categories Response:", response.data);
 
-
-            if (response.data.success) {
-                setCategories(response.data.categories);
-            } else {
-                setCategories([]);
-            }
-
+            setCategories(response.data.categories || []);
         } catch (error) {
-
             console.log("CATEGORY ERROR:", error);
 
             toast.error(
                 error.response?.data?.message ||
                 "Failed to fetch categories"
             );
-
         }
     };
 
