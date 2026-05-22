@@ -62,51 +62,51 @@ export default function TransactionsPage() {
     }, []);
 
     const fetchTransactions = async (token) => {
-    try {
-        const response = await axios.get(
-            `${API_URL}/transactions`,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }
-        );
+        try {
+            const response = await axios.get(
+                `${API_URL}/transactions`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
-        setTransactions(response.data.transactions || []);
-    } catch (error) {
-        console.log(error);
+            setTransactions(response.data.transactions || []);
+        } catch (error) {
+            console.log("ADD TRANSACTION ERROR:", error.response?.data || error);
 
-        toast.error(
-            error.response?.data?.message ||
-            "Failed to fetch transactions"
-        );
-    } finally {
-        setTimeout(() => setLoading(false), 500);
-    }
-};
-    
+            toast.error(
+                error.response?.data?.message ||
+                "Failed to fetch transactions"
+            );
+        } finally {
+            setTimeout(() => setLoading(false), 500);
+        }
+    };
 
-const fetchCategories = async (token) => {
-    try {
-        const response = await axios.get(
-            `${API_URL}/categories`,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }
-        );
 
-        setCategories(response.data.categories || []);
-    } catch (error) {
-        console.log("CATEGORY ERROR:", error);
+    const fetchCategories = async (token) => {
+        try {
+            const response = await axios.get(
+                `${API_URL}/categories`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
-        toast.error(
-            error.response?.data?.message ||
-            "Failed to fetch categories"
-        );
-    }
-};
+            setCategories(response.data.categories || []);
+        } catch (error) {
+            console.log("CATEGORY ERROR:", error);
+
+            toast.error(
+                error.response?.data?.message ||
+                "Failed to fetch categories"
+            );
+        }
+    };
 
     const handleChange = (e) => {
 
@@ -115,6 +115,10 @@ const fetchCategories = async (token) => {
             [e.target.name]: e.target.value
         });
     };
+
+
+
+
 
     const handleSubmit = async (e) => {
 
@@ -127,7 +131,7 @@ const fetchCategories = async (token) => {
             const token = localStorage.getItem("token");
 
             await axios.post(
-                `${API_URL}/api/transactions`,
+                `${API_URL}/transactions`,
                 formData,
                 {
                     headers: {
